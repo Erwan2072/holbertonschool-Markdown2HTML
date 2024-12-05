@@ -2,6 +2,14 @@
 """
 Markdown2HTML
 Converts a Markdown file to an HTML file based on strict syntax rules.
+
+Usage:
+    ./markdown2html.py INPUT_FILE OUTPUT_FILE
+
+- INPUT_FILE: The path to the input Markdown file.
+- OUTPUT_FILE: The path to the output HTML file.
+
+The script follows strict Markdown syntax rules to generate HTML.
 """
 
 import sys
@@ -13,6 +21,13 @@ import hashlib
 def markdown_to_html(input_file, output_file):
     """
     Converts the content of a Markdown file into HTML.
+
+    Args:
+        input_file (str): The path to the input Markdown file.
+        output_file (str): The path to the output HTML file.
+
+    Returns:
+        None
     """
     with open(input_file, 'r') as md_file:
         lines = md_file.readlines()
