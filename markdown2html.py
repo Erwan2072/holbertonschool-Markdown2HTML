@@ -43,7 +43,9 @@ def markdown_to_html(input_file, output_file):
         if line.startswith('#'):
             heading_level = len(line.split(' ')[0])
             content = line[heading_level + 1:].strip()
-            html_lines.append(f"<h{heading_level}>{content}</h{heading_level}>")
+            html_lines.append(
+                f"<h{heading_level}>{content}</h{heading_level}>"
+            )
 
         # Handle Unordered Lists (-)
         elif line.startswith('- '):
@@ -70,10 +72,22 @@ def markdown_to_html(input_file, output_file):
             if in_list:
                 html_lines.append(f"</{list_type}>")
                 in_list = False
-            line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', line)  # Bold
-            line = re.sub(r'__(.*?)__', r'<em>\1</em>', line)    # Italic
-            line = re.sub(r'\[\[(.*?)\]\]', lambda m: hashlib.md5(m.group(1).encode()).hexdigest(), line)  # MD5
-            line = re.sub(r'\(\((.*?)\)\)', lambda m: m.group(1).replace('c', '').replace('C', ''), line)  # Remove 'C'
+            line = re.sub(
+                r'\*\*(.*?)\*\*', r'<b>\1</b>', line
+            )  # Bold
+            line = re.sub(
+                r'__(.*?)__', r'<em>\1</em>', line
+            )  # Italic
+            line = re.sub(
+                r'\[\[(.*?)\]\]',
+                lambda m: hashlib.md5(m.group(1).encode()).hexdigest(),
+                line,
+            )  # MD5
+            line = re.sub(
+                r'\(\((.*?)\)\)',
+                lambda m: m.group(1).replace('c', '').replace('C', ''),
+                line,
+            )  # Remove 'C'
             if line:
                 html_lines.append(f"<p>{line}</p>")
 
@@ -88,7 +102,10 @@ def markdown_to_html(input_file, output_file):
 if __name__ == "__main__":
     # Check argument count
     if len(sys.argv) < 3:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+        print(
+            "Usage: ./markdown2html.py README.md README.html",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     input_file, output_file = sys.argv[1], sys.argv[2]
