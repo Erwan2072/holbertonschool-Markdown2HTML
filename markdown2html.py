@@ -28,7 +28,9 @@ def markdown_to_html(input_file, output_file):
         if line.startswith('#'):
             heading_level = len(line.split(' ')[0])
             content = line[heading_level + 1:].strip()
-            html_lines.append(f"<h{heading_level}>{content}</h{heading_level}>")
+            html_lines.append(
+                f"<h{heading_level}>{content}</h{heading_level}>"
+            )
 
         # Handle Unordered Lists (-)
         elif line.startswith('- '):
@@ -84,7 +86,11 @@ def main():
     """
     # Check argument count
     if len(sys.argv) < 3:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+        print(
+                "Usage: ./markdown2html.py README.md README.html",
+                file=sys.stderr
+            )
+
         sys.exit(1)
 
     input_file, output_file = sys.argv[1], sys.argv[2]
