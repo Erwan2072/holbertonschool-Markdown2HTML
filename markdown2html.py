@@ -2,6 +2,17 @@
 """
 Markdown2HTML
 Converts a Markdown file to an HTML file based on strict syntax rules.
+<<<<<<< HEAD
+=======
+
+Usage:
+    ./markdown2html.py INPUT_FILE OUTPUT_FILE
+
+- INPUT_FILE: The path to the input Markdown file.
+- OUTPUT_FILE: The path to the output HTML file.
+
+The script follows strict Markdown syntax rules to generate HTML.
+>>>>>>> 89b3dd732c70cc836a2ae01842d658400fd36966
 """
 
 import sys
@@ -13,6 +24,16 @@ import hashlib
 def markdown_to_html(input_file, output_file):
     """
     Converts the content of a Markdown file into HTML.
+<<<<<<< HEAD
+=======
+
+    Args:
+        input_file (str): The path to the input Markdown file.
+        output_file (str): The path to the output HTML file.
+
+    Returns:
+        None
+>>>>>>> 89b3dd732c70cc836a2ae01842d658400fd36966
     """
     with open(input_file, 'r') as md_file:
         lines = md_file.readlines()
@@ -28,7 +49,13 @@ def markdown_to_html(input_file, output_file):
         if line.startswith('#'):
             heading_level = len(line.split(' ')[0])
             content = line[heading_level + 1:].strip()
+<<<<<<< HEAD
             html_lines.append(f"<h{heading_level}>{content}</h{heading_level}>")
+=======
+            html_lines.append(
+                f"<h{heading_level}>{content}</h{heading_level}>"
+            )
+>>>>>>> 89b3dd732c70cc836a2ae01842d658400fd36966
 
         # Handle Unordered Lists (-)
         elif line.startswith('- '):
@@ -55,10 +82,29 @@ def markdown_to_html(input_file, output_file):
             if in_list:
                 html_lines.append(f"</{list_type}>")
                 in_list = False
+<<<<<<< HEAD
             line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', line)  # Bold
             line = re.sub(r'__(.*?)__', r'<em>\1</em>', line)    # Italic
             line = re.sub(r'\[\[(.*?)\]\]', lambda m: hashlib.md5(m.group(1).encode()).hexdigest(), line)  # MD5
             line = re.sub(r'\(\((.*?)\)\)', lambda m: m.group(1).replace('c', '').replace('C', ''), line)  # Remove 'C'
+=======
+            line = re.sub(
+                r'\*\*(.*?)\*\*', r'<b>\1</b>', line
+            )  # Bold
+            line = re.sub(
+                r'__(.*?)__', r'<em>\1</em>', line
+            )  # Italic
+            line = re.sub(
+                r'\[\[(.*?)\]\]',
+                lambda m: hashlib.md5(m.group(1).encode()).hexdigest(),
+                line,
+            )  # MD5
+            line = re.sub(
+                r'\(\((.*?)\)\)',
+                lambda m: m.group(1).replace('c', '').replace('C', ''),
+                line,
+            )  # Remove 'C'
+>>>>>>> 89b3dd732c70cc836a2ae01842d658400fd36966
             if line:
                 html_lines.append(f"<p>{line}</p>")
 
@@ -73,7 +119,14 @@ def markdown_to_html(input_file, output_file):
 if __name__ == "__main__":
     # Check argument count
     if len(sys.argv) < 3:
+<<<<<<< HEAD
         print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+=======
+        print(
+            "Usage: ./markdown2html.py README.md README.html",
+            file=sys.stderr,
+        )
+>>>>>>> 89b3dd732c70cc836a2ae01842d658400fd36966
         sys.exit(1)
 
     input_file, output_file = sys.argv[1], sys.argv[2]
