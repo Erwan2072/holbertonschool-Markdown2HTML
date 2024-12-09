@@ -1,124 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Markdown2HTML - A Python script that converts Markdown files into HTML">
-    <title>Markdown2HTML</title>
-</head>
-<body>
-    <h1>Markdown2HTML</h1>
-    <p>Markdown2HTML is a Python script that converts Markdown files into HTML. This script handles headings, unordered and ordered lists, simple paragraphs, bold text, emphasis, and custom syntax transformations.</p>
-
-    <h2>Requirements</h2>
-    <ul>
-        <li>Ubuntu 18.04 LTS</li>
-        <li>Python 3.7 or higher</li>
-        <li>PEP 8 style guide compliance (version 1.7.*)</li>
-        <li>All scripts are executable and documented.</li>
-        <li>Custom Markdown features, including transformations like <code>[[text]]</code> (MD5 conversion) and <code>((text))</code> (character removal).</li>
-    </ul>
-
-    <h2>Features</h2>
-    <h3>Supported Markdown Syntax</h3>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Markdown Syntax</th>
-                <th>HTML Output</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code># Heading level 1</code></td>
-                <td><code>&lt;h1&gt;Heading level 1&lt;/h1&gt;</code></td>
-                <td>Converts headings from level 1 to 6</td>
-            </tr>
-            <tr>
-                <td><code>- List item</code></td>
-                <td><code>&lt;ul&gt;&lt;li&gt;List item&lt;/li&gt;&lt;/ul&gt;</code></td>
-                <td>Converts unordered lists</td>
-            </tr>
-            <tr>
-                <td><code>* List item</code></td>
-                <td><code>&lt;ol&gt;&lt;li&gt;List item&lt;/li&gt;&lt;/ol&gt;</code></td>
-                <td>Converts ordered lists</td>
-            </tr>
-            <tr>
-                <td><code>Hello</code></td>
-                <td><code>&lt;p&gt;Hello&lt;/p&gt;</code></td>
-                <td>Converts simple paragraphs</td>
-            </tr>
-            <tr>
-                <td><code>**Bold text**</code></td>
-                <td><code>&lt;b&gt;Bold text&lt;/b&gt;</code></td>
-                <td>Formats text in bold</td>
-            </tr>
-            <tr>
-                <td><code>__Italic text__</code></td>
-                <td><code>&lt;em&gt;Italic text&lt;/em&gt;</code></td>
-                <td>Formats text in italics</td>
-            </tr>
-            <tr>
-                <td><code>[[Text]]</code></td>
-                <td>MD5 hash of "Text"</td>
-                <td>Converts content to its MD5 hash</td>
-            </tr>
-            <tr>
-                <td><code>((Text))</code></td>
-                <td>Te (removes all 'c' or 'C')</td>
-                <td>Removes all 'c' (case insensitive) from content</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Installation</h2>
-    <ol>
-        <li>Clone the repository:
-            <pre><code>git clone https://github.com/holbertonschool-Markdown2HTML.git</code></pre>
-        </li>
-        <li>Navigate to the project directory:
-            <pre><code>cd holbertonschool-Markdown2HTML</code></pre>
-        </li>
-        <li>Ensure the script is executable:
-            <pre><code>chmod +x markdown2html.py</code></pre>
-        </li>
-    </ol>
-
-    <h2>Usage</h2>
-    <p>Run the script using the following command:</p>
-    <pre><code>./markdown2html.py input_file.md output_file.html</code></pre>
-
-    <h2>Examples</h2>
-    <h3>Case 1: Missing arguments</h3>
-    <pre><code>$ ./markdown2html.py
-Usage: ./markdown2html.py README.md README.html</code></pre>
-
-    <h3>Case 2: File conversion</h3>
-    <p>Input (README.md):</p>
-    <pre><code># Title
-- Item 1
-- Item 2
-**Bold**
-__Italic__
-[[Secret]]
-((Chicago))</code></pre>
-
-    <p>Output (README.html):</p>
-    <pre><code>&lt;h1&gt;Title&lt;/h1&gt;
-&lt;ul&gt;
-    &lt;li&gt;Item 1&lt;/li&gt;
-    &lt;li&gt;Item 2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;2bb80d537b1da3e38bd30361aa855686&lt;/p&gt;
-&lt;p&gt;hiago&lt;/p&gt;</code></pre>
-
-    <h2>Development</h2>
-    <h3>Code Style</h3>
-    <p>The code follows PEP 8 guidelines. Use the following to check compliance:</p>
-    <pre><code>pycodestyle markdown2html.py</code></pre>
-</body>
-</html>
+<h1>My title</h1>
+<ul>
+	<li>He<b>l</b>lo</li>
+	<li>Bye</li>
+</ul>
+<p>
+	Hello
+</p>
+<p>
+	I'm <b>a</b> text
+<br/>
+	with <em>2 lines</em>
+</p>
+<p>
+	I will live in araas
+</p>
+<p>
+	But it's 2c17c6393771ee3048ae34d6b380c5ec
+</p>
+<p>
+	So cool!
+</p>
